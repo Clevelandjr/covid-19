@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
+import axios from "axios";
 
 
 function App() {
+  useEffect(() => {
+    axios.get("https://disease.sh/v3/covid-19/countries?yesterday=true&sort=cases&allowNull=1")
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }, []);
   return (
     <div>
       <CardDeck>
