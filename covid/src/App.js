@@ -8,7 +8,7 @@ function App() {
     <div>
       <CardDeck>
   <Card>
-    <Card.Img variant="top" src="holder.js/100px160" />
+    
     <Card.Body>
       <Card.Title>Card title</Card.Title>
       <Card.Text>
@@ -21,7 +21,7 @@ function App() {
     </Card.Footer>
   </Card>
   <Card>
-    <Card.Img variant="top" src="holder.js/100px160" />
+    
     <Card.Body>
       <Card.Title>Card title</Card.Title>
       <Card.Text>
@@ -34,7 +34,7 @@ function App() {
     </Card.Footer>
   </Card>
   <Card>
-    <Card.Img variant="top" src="holder.js/100px160" />
+    
     <Card.Body>
       <Card.Title>Card title</Card.Title>
       <Card.Text>
