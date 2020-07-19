@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import axios from "axios";
-import CardColumns from 'react-bootstrap/CardColumns';
+import CardColumns from "react-bootstrap/CardColumns";
+import Form from "react-bootstrap/Form";
 
 
 function App() {
   const [latest, setLatest] = useState([]);
   const [results, setResults] = useState([]);
+  const [searchCountry, setSearchCountry] = useState("");
 
   useEffect(() => {
     axios
@@ -44,6 +46,8 @@ function App() {
       </Card>
     )
   });
+
+
 
 
   return (
@@ -86,7 +90,12 @@ function App() {
     </Card.Footer>
   </Card>
 </CardDeck>
-<CardColumns>{countries}</CardColumns>
+<Form>
+  <Form.Group controlId="formGroupSearch">
+    <Form.Control type="text" placeholder="Search for a Country" />
+  </Form.Group>
+</Form>
+<CardColumns> {countries} </CardColumns>
     </div>
   );
 }
