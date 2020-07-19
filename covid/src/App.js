@@ -1,14 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import axios from "axios";
 
 
 function App() {
+  const [latest,setLatest] = useState("");
   useEffect(() => {
-    axios.get("https://disease.sh/v3/covid-19/countries?yesterday=true&sort=cases&allowNull=1")
+    axios.get("https://corona.lmao.ninja/v3/covid-19/all")
     .then(res => {
-      console.log(res.data);
+      setLatest(res.data);
     })
     .catch(err => {
       console.log(err);
@@ -22,7 +23,7 @@ function App() {
     <Card.Body>
       <Card.Title>Cases</Card.Title>
       <Card.Text>
-        100
+        {latest.cases}
       </Card.Text>
     </Card.Body>
     <Card.Footer>
