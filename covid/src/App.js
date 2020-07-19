@@ -29,6 +29,7 @@ function App() {
   const countries = results.map(data => {
     return (
       <Card bg="light" text="dark" className="text-center" style={{ margin: "10px"}} >
+        <Card.Img variant="top" src={data.countryInfo.flag} />
         <Card.Body>
         <Card.Title>{data.country}</Card.Title>
       <Card.Text> Cases {data.cases}</Card.Text>
