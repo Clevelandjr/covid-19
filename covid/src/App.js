@@ -35,7 +35,7 @@ function App() {
     <Card.Body>
       <Card.Title>Deaths</Card.Title>
       <Card.Text>
-        0
+        {latest.deaths}
       </Card.Text>
     </Card.Body>
     <Card.Footer>
@@ -47,7 +47,7 @@ function App() {
     <Card.Body>
       <Card.Title>Recovered</Card.Title>
       <Card.Text>
-        99
+        {latest.recovered}
       </Card.Text>
     </Card.Body>
     <Card.Footer>
