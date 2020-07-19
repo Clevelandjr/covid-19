@@ -15,6 +15,9 @@ function App() {
       console.log(err);
     });
   }, []);
+
+  const date = new Date(parseInt(latest.updated));
+  const lastUpdated = date.toString();
   return (
     <div>
       <CardDeck>
@@ -27,7 +30,7 @@ function App() {
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-      <small>Last updated 3 mins ago</small>
+      <small>Last updated {lastUpdated} </small>
     </Card.Footer>
   </Card>
   <Card bg="danger" text="white" className="text-center" style={{margin: "10px"}}>
@@ -39,7 +42,7 @@ function App() {
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-      <small>Last updated 3 mins ago</small>
+      <small>Last updated {lastUpdated} </small>
     </Card.Footer>
   </Card>
   <Card bg="success" text="white" className="text-center" style={{margin: "10px"}}>
@@ -51,7 +54,7 @@ function App() {
       </Card.Text>
     </Card.Body>
     <Card.Footer>
-      <small>Last updated 3 mins ago</small>
+      <small>Last updated {lastUpdated} </small>
     </Card.Footer>
   </Card>
 </CardDeck>
