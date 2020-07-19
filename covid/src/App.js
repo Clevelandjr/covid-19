@@ -32,6 +32,12 @@ function App() {
         <Card.Body>
         <Card.Title>{data.country}</Card.Title>
       <Card.Text> Cases {data.cases}</Card.Text>
+      <Card.Text> Deaths {data.deaths}</Card.Text>
+      <Card.Text> Recovered {data.recovered}</Card.Text>
+      <Card.Text> Today's cases {data.todayCases}</Card.Text>
+      <Card.Text> Today's deaths {data.todayDeaths}</Card.Text>
+      <Card.Text> Active {data.active}</Card.Text>
+      <Card.Text> Critical {data.critical}</Card.Text>
         </Card.Body>
       </Card>
     )
