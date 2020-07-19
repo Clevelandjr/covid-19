@@ -5,11 +5,18 @@ import axios from "axios";
 
 
 function App() {
-  const [latest,setLatest] = useState("");
+  const [latest, setLatest] = useState([]);
+  const [results, setResults] = useState([]);
+
   useEffect(() => {
-    axios.get("https://corona.lmao.ninja/v3/covid-19/all")
-    .then(res => {
-      setLatest(res.data);
+    axios
+      .all([
+        axios.get("https://corona.lmao.ninja/v3/covid-19/all"),
+        axios.get("https://corona.lmao.ninja/v3/covid-19/countries")
+      ])
+    .then(responseArr => {
+      setLatest(responseArr[0].data);
+      setResults(responseArr[1].data);
     })
     .catch(err => {
       console.log(err);
@@ -18,6 +25,19 @@ function App() {
 
   const date = new Date(parseInt(latest.updated));
   const lastUpdated = date.toString();
+
+  const countries = results.map(data => {
+    return (
+      <Card bg="light" text="dark" className="text-center" style={{ margin: "10px"}} >
+        <Card.Body>
+        <Card.Title>{data.country}</Card.Title>
+      <Card.Text> Cases {data.cases}</Card.Text>
+        </Card.Body>
+      </Card>
+    )
+  });
+
+
   return (
     <div>
       <CardDeck>
@@ -58,8 +78,10 @@ function App() {
     </Card.Footer>
   </Card>
 </CardDeck>
+{countries}
     </div>
   );
 }
+
 
 export default App;
