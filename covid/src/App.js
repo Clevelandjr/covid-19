@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import axios from "axios";
+import CardColumns from 'react-bootstrap/CardColumns';
 
 
 function App() {
@@ -26,9 +27,9 @@ function App() {
   const date = new Date(parseInt(latest.updated));
   const lastUpdated = date.toString();
 
-  const countries = results.map(data => {
+  const countries = results.map((data, i) => {
     return (
-      <Card bg="light" text="dark" className="text-center" style={{ margin: "10px"}} >
+      <Card key={i} bg="light" text="dark" className="text-center" style={{ margin: "10px"}} >
         <Card.Img variant="top" src={data.countryInfo.flag} />
         <Card.Body>
         <Card.Title>{data.country}</Card.Title>
@@ -85,7 +86,7 @@ function App() {
     </Card.Footer>
   </Card>
 </CardDeck>
-{countries}
+<CardColumns>{countries}</CardColumns>
     </div>
   );
 }
